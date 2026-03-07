@@ -1,0 +1,31 @@
+﻿{
+  "manifest_version": 3,
+  "name": "QQPoisk Movie Redirect",
+  "version": "1.1.0",
+  "description": "Adds a redirect button from movie/series pages to qqpoisk.ru.",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Open on QQPoisk",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.kinopoisk.ru/film/*",
+        "https://www.kinopoisk.ru/series/*"
+      ],
+      "js": [
+        "scripts/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
