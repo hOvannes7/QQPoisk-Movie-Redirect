@@ -1,35 +1,43 @@
-﻿# QQPoisk Movie Redirect
+﻿# 🎬 QQPoisk Movie Redirect
 
-Russian version: [README.ru.md](./README.ru.md)
+> Open the same movie/series page on **qqpoisk.ru** directly from Kinopoisk.
 
-Chrome extension that adds a button on Kinopoisk movie/series pages and opens the same page path on `qqpoisk.ru`.
+[🇷🇺 Русская версия](./README.ru.md)
 
-## Legal Notice
+## ✨ What It Does
 
-- This project is **unofficial** and is **not affiliated with, endorsed by, or sponsored by** Kinopoisk or Yandex.
-- Do not use third-party logos, trademarks, or copyrighted brand assets without permission.
-- Use your own original icons and branding for public releases.
-- Make sure your use complies with local law and the target site's Terms of Service.
+- Adds a quick **👁 Watch** button on Kinopoisk movie/series pages.
+- Keeps the same URL path and opens the matching page on `qqpoisk.ru`.
+- Works on:
+  - `https://www.kinopoisk.ru/film/*`
+  - `https://www.kinopoisk.ru/series/*`
 
-### Educational Purpose Disclaimer
-
-This project is provided for educational and informational purposes only.
-It is not intended to facilitate, encourage, or support any unlawful activity.
-The authors do not claim any rights to third-party brands, services, or content.
-By using, modifying, or distributing this code, you are solely responsible for ensuring compliance with applicable laws, regulations, and the Terms of Service of any third-party platforms.
-
-## Install Locally
+## 🚀 Quick Start
 
 1. Open `chrome://extensions/`
-2. Enable Developer mode
-3. Click "Load unpacked"
+2. Enable **Developer mode**
+3. Click **Load unpacked**
 4. Select this project folder
 
-## Repository Structure
+## 🧩 Project Structure
 
-- Extension icons are stored in `assets/icons/` as PNG files: `icon16.png`, `icon32.png`, `icon48.png`, `icon128.png`.
-- Main content script: `scripts/content.js`.
+- `manifest.json` — extension manifest (MV3)
+- `scripts/content.js` — page integration logic
+- `assets/icons/` — extension icons (`icon16.png`, `icon32.png`, `icon48.png`, `icon128.png`)
 
-## License
+## ⚖️ Legal Notice
 
-This repository uses the MIT License (see `LICENSE`).
+- This project is **unofficial** and is **not affiliated with, endorsed by, or sponsored by** Kinopoisk or Yandex.
+- Do not use third-party logos, trademarks, or brand assets without permission.
+- For public distribution, use only original assets you are legally allowed to use.
+- You are responsible for compliance with local laws and third-party Terms of Service.
+
+## 📘 Educational Purpose Disclaimer
+
+This project is provided for **educational and informational purposes only**.
+It is not intended to facilitate, encourage, or support unlawful activity.
+By using, modifying, or distributing this code, you assume full responsibility for legal compliance.
+
+## 📄 License
+
+Licensed under the **MIT License** — see [LICENSE](./LICENSE).
