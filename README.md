@@ -1,8 +1,12 @@
-﻿# 🎬 QQPoisk Movie Redirect
+﻿<h1 align="center">🎬 QQPoisk Movie Redirect</h1>
 
-> Open the same movie/series page on **qqpoisk.ru** directly from Kinopoisk.
+<p align="center">
+  Open the same movie/series page on <strong>qqpoisk.ru</strong> directly from Kinopoisk.
+</p>
 
-[🇷🇺 Русская версия](./README.ru.md)
+<p align="center">
+  <a href="./README.ru.md">🇷🇺 Русская версия</a>
+</p>
 
 ## ✨ What It Does
 
