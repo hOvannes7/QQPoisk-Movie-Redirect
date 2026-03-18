@@ -3,6 +3,8 @@
   const WATCH_LABEL = "\u0421\u043c\u043e\u0442\u0440\u0435\u0442\u044c";
   const WATCH_ICON = "\uD83D\uDC41";
   const WILL_WATCH_LABEL = "\u0431\u0443\u0434\u0443 \u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c";
+  const WATCH_MOVIE_LABEL = "\u0421\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0444\u0438\u043b\u044c\u043c";
+  const WATCH_MOVIE_LABEL_SHORT = "\u0421\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0444\u0438\u043b\u044c\u043c";
 
   function isMoviePage() {
     return /^\/(film|series)\/\d+\/?/.test(window.location.pathname);
@@ -21,7 +23,7 @@
     });
   }
 
-  function createButton(referenceEl) {
+  function createButton(referenceEl, useIcon = false) {
     if (!referenceEl) return null;
     const targetUrl = buildTargetUrl();
     const clone = referenceEl.cloneNode(true);
@@ -48,7 +50,7 @@
     }
 
     cleanHandlers(clone);
-    clone.textContent = WATCH_LABEL;
+    clone.textContent = useIcon ? WATCH_ICON : WATCH_LABEL;
     clone.setAttribute("aria-label", WATCH_LABEL);
     clone.setAttribute("title", WATCH_LABEL);
     return clone;
@@ -59,6 +61,14 @@
     return candidates.find((el) => {
       const txt = (el.textContent || "").trim().toLowerCase();
       return txt.includes(WILL_WATCH_LABEL);
+    });
+  }
+
+  function findWatchMovieButton() {
+    const candidates = Array.from(document.querySelectorAll("button, a"));
+    return candidates.find((el) => {
+      const txt = (el.textContent || "").trim();
+      return txt === WATCH_MOVIE_LABEL || txt === WATCH_MOVIE_LABEL_SHORT;
     });
   }
 
@@ -125,7 +135,12 @@
       return;
     }
 
-    const willWatch = findWillWatchButton();
+    let willWatch = findWillWatchButton();
+
+    if (!willWatch) {
+      willWatch = findWatchMovieButton();
+    }
+
     if (!willWatch || !willWatch.parentElement) return;
     const row = findActionRow(willWatch);
     const moreButton = findMoreButtonNear(willWatch);
@@ -133,7 +148,7 @@
 
     const btn = createButton(template);
     if (!btn) return;
-    btn.textContent = moreButton ? WATCH_ICON : WATCH_LABEL;
+    btn.textContent = WATCH_LABEL;
     btn.setAttribute("aria-label", WATCH_LABEL);
     btn.setAttribute("title", WATCH_LABEL);
 
