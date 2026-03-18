@@ -72,6 +72,30 @@
     });
   }
 
+  function findWatchSeriesButton() {
+    const candidates = Array.from(document.querySelectorAll("button, a"));
+    return candidates.find((el) => {
+      const txt = (el.textContent || "").trim();
+      return txt === "Смотреть сериал" || txt.toLowerCase().includes("смотреть сериал");
+    });
+  }
+
+  function findSimpleWatchButton() {
+    const candidates = Array.from(document.querySelectorAll("button, a"));
+    return candidates.find((el) => {
+      const txt = (el.textContent || "").trim();
+      return txt === WATCH_LABEL;
+    });
+  }
+
+  function findBuyAndWatchButton() {
+    const candidates = Array.from(document.querySelectorAll("button, a"));
+    return candidates.find((el) => {
+      const txt = (el.textContent || "").trim();
+      return txt === "Купить и смотреть" || txt.toLowerCase().includes("купить и смотреть");
+    });
+  }
+
   function findMoreButtonNear(willWatch) {
     if (!willWatch) return null;
     const row = findActionRow(willWatch);
@@ -139,6 +163,18 @@
 
     if (!willWatch) {
       willWatch = findWatchMovieButton();
+    }
+
+    if (!willWatch) {
+      willWatch = findWatchSeriesButton();
+    }
+
+    if (!willWatch) {
+      willWatch = findSimpleWatchButton();
+    }
+
+    if (!willWatch) {
+      willWatch = findBuyAndWatchButton();
     }
 
     if (!willWatch || !willWatch.parentElement) return;
